@@ -179,3 +179,18 @@ button:hover {
     border: none;
   }
 }
+
+/* FIX: Override global button width for logout */
+#logoutBtn {
+  width: auto !important;
+  padding: 4px 10px !important;
+  font-size: 13px !important;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #3d3d3d;
+  border-radius: 6px;
+  border: none;
+  z-index: 999;
+}
+
