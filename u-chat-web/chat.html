@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>U-Chat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div id="chat-container">
+
+    <div id="messages"></div>
+
+    <div id="composer">
+      <input id="msgBox" placeholder="Type a message…" onkeypress="sendOnEnter(event)">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ws.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>
