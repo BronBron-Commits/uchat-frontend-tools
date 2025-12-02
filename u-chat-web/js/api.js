@@ -1,21 +1,17 @@
-// Basic API wrapper for U-Chat backend
-
-const API_BASE = "http://your-server/api";
+// Later we'll connect this to the real U-Chat auth-api.
+// For now, just store the username and move to chat.
 
 async function login() {
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
+  const user = document.getElementById("username").value.trim();
+  const pass = document.getElementById("password").value.trim();
 
-  const res = await fetch(API_BASE + "/auth/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, password })
-  });
-
-  if (res.ok) {
-    localStorage.setItem("username", username);
-    window.location = "chat.html";
-  } else {
-    document.getElementById("error").innerText = "Login failed";
+  if (user.length < 1) {
+    document.getElementById("error").innerText = "Please enter a username";
+    return;
   }
+
+  // TODO: add real API call later
+  localStorage.setItem("username", user);
+
+  window.location = "chat.html";
 }

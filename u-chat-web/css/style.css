@@ -1,72 +1,181 @@
+/* GENERAL ------------------------------------------------------ */
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background: #111;
-  color: #eee;
-}
-
-.centered {
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(145deg, #0c0c0c, #1a1a1a);
+  color: #eaeaea;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* LOGIN -------------------------------------------------------- */
+
+.centered {
+  width: 100%;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-card {
   width: 90%;
-  max-width: 350px;
-  padding: 20px;
-  background: #222;
-  border-radius: 10px;
+  max-width: 380px;
+  padding: 30px;
+  background: #1f1f1f;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.login-card h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 700;
 }
 
 input, button {
   width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 6px;
+  padding: 14px;
+  margin-top: 12px;
+  border-radius: 10px;
   font-size: 16px;
+  border: none;
+}
+
+input {
+  background: #2c2c2c;
+  color: #fff;
 }
 
 button {
-  background: #5b2cff;
-  color: white;
+  background: #6d4bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #7a5aff;
+}
+
+#error {
+  margin-top: 10px;
+  color: #ff6b6b;
+}
+
+/* CHAT LAYOUT -------------------------------------------------- */
+
+#chat-container {
+  width: 100%;
+  max-width: 680px;
+  height: 100vh;
+  background: #141414;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #222;
+  border-right: 1px solid #222;
+}
+
+#top-bar {
+  padding: 14px 18px;
+  background: #1e1e1e;
+  border-bottom: 1px solid #222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ddd;
+}
+
+#logoutBtn {
+  padding: 8px 14px;
+  background: #3d3d3d;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
   cursor: pointer;
 }
 
-#chat-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+#logoutBtn:hover {
+  background: #4d4d4d;
 }
 
 #messages {
   flex: 1;
   overflow-y: auto;
-  padding: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
+/* MESSAGE BUBBLES --------------------------------------------- */
+
+.message {
+  padding: 12px 16px;
+  background: #2b2b2b;
+  border-radius: 14px;
+  max-width: 75%;
+  width: fit-content;
+  color: #eee;
+  line-height: 1.4;
+  animation: msgPop 0.2s ease;
+}
+
+.message.you {
+  background: #6d4bff;
+  margin-left: auto;
+  color: white;
+}
+
+/* COMPOSER ----------------------------------------------------- */
+
 #composer {
+  padding: 12px;
+  background: #1e1e1e;
+  border-top: 1px solid #222;
   display: flex;
   gap: 10px;
-  padding: 10px;
-  background: #222;
 }
 
 #msgBox {
   flex: 1;
-  padding: 10px;
-  border-radius: 6px;
+  padding: 12px;
+  background: #2c2c2c;
+  border-radius: 12px;
   border: none;
-  font-size: 16px;
+  color: white;
 }
 
-.message {
-  padding: 8px 12px;
-  background: #232323;
-  margin-bottom: 6px;
-  border-radius: 6px;
-  max-width: 80%;
+#composer button {
+  width: 90px;
+  padding: 12px;
+  background: #6d4bff;
+  border-radius: 10px;
+}
+
+/* ANIMATIONS --------------------------------------------------- */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes msgPop {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* MOBILE ------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  #chat-container {
+    max-width: 100%;
+    border: none;
+  }
 }

@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>U-Chat</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
   <div id="chat-container">
 
-    <div id="top-bar">
-      <span id="usernameDisplay"></span>
-      <button id="logoutBtn" onclick="logout()">Logout</button>
-    </div>
-
     <div id="messages"></div>
 
     <div id="composer">
-      <input id="msgBox"
-             placeholder="Type a message…"
-             onkeypress="sendOnEnter(event)">
+      <input id="msgBox" placeholder="Type a message…" onkeypress="sendOnEnter(event)">
       <button onclick="sendMessage()">Send</button>
     </div>
 
@@ -29,6 +22,5 @@
   <script src="js/api.js"></script>
   <script src="js/ws.js"></script>
   <script src="js/ui.js"></script>
-
 </body>
 </html>
